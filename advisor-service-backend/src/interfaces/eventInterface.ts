@@ -4,10 +4,12 @@
 export  interface eventInterface{
 
     eventType:string,
-    eventLocation:string,
     eventPlatform:string,
+    eventLocation:string,
     eventStartDate:string,
     eventEndDate:string,
     eventDescription:string,
-
+    eventStartTime:string,
+    eventEndTime:string
+    id?:string
 }

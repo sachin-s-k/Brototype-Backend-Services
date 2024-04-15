@@ -11,19 +11,17 @@ export class eventInteractor implements eventIntercatorInterface{
 
     addEvent(event: eventInterface) {
         return this.eventRepository.addEvent(event)
-         
-
-
-
-
         
     }
 
-    editevent(event: eventInterface, id: string) {
+    editevent(event: eventInterface) {
+        return this.eventRepository.editEvent('',event)
         
     }
 
-    deleteEvent(id: string) {
+    deleteEvent(coordinatorid: string,eventId:string) {
+
+        return this.eventRepository.deleteEvent(coordinatorid,eventId)
         
     }
 
