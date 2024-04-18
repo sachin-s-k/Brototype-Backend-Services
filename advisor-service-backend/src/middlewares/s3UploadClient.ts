@@ -17,8 +17,8 @@ interface file{
 
 const s3=new S3Client({
     credentials:{
-        accessKeyId:'AKIAS2XNLQHGJIJ5NQPJ',
-        secretAccessKey:'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'
+        accessKeyId:`${process.env.AWS_ACCESS_KEY_ID}`,
+        secretAccessKey:`${process.env.AWS_SECRET_ACCESS_KEY}`
     },
     region:'ap-south-1'
 })
