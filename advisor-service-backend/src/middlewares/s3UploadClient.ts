@@ -64,7 +64,6 @@ const upload= multer({
 
     storage:s3Storage,
     fileFilter:(req, file, callback)=> {
-        console.log('callleddddd'),
         sanitizeFile(file,callback)        
     },
     limits:{

@@ -4,5 +4,6 @@ export interface  ICoordinatorInteractor{
     editCoordnatorProfile(coordiantorData:any):any
     getCoordinatorProfile(id:string):any,
     getTopCoordinators():any
+    getAllCoordinators():any
 }
 

@@ -17,4 +17,6 @@ coordinatorRouter.post('/profile/create-coordinator',async (req,res)=>{
    console.log(response);
    res.json(response)
 })
-export {coordinatorRouter}
+
+// coordinatorRouter.get('/get-all-coordinators/',controller.OnGetAllCoordinators.bind(controller))
+export {coordinatorRouter,controller}

@@ -37,4 +37,16 @@ export class  CoordinatorController{
         return res.json(response)
     }
 
+    async OnGetAllCoordinators(){
+
+        const response=await this.coordinatorInteractor.getAllCoordinators()
+
+        const cleanedResponse=response.map((item:any)=>{
+            return {_id:item._id.toHexString()}
+        })
+        return cleanedResponse
+        // res.json(response)
+
+    }
+
 }

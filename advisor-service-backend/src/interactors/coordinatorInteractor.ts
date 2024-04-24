@@ -24,4 +24,8 @@ export class CoordinatorInteractor implements ICoordinatorInteractor{
     getTopCoordinators() {
         return this.coordinatorRepository.findTopcoordinators()
     }
+
+    getAllCoordinators(){
+        return this.coordinatorRepository.findAllCoordinators()
+    }
 }

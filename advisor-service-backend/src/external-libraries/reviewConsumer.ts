@@ -3,6 +3,8 @@ import { sendAdvisorData } from './kafkaService';
 import { DistributeRepository } from '../repositories/distributeRepository';
 import { DistributeInteractor } from '../interactors/distributeInteractor';
 import { DistributeController } from '../conrollers/distrbuteContoller';
+import { controller } from '../routes/coordinatorRouter';
+
 const distributeRepository=new DistributeRepository
 const distributeInteractor=new DistributeInteractor(distributeRepository)
 const distributeController=new DistributeController(distributeInteractor)
@@ -29,7 +31,16 @@ async function consumeReviewData() {
             
         }
         if(reviewDatas.type=='review-scheduler-data'){
-            let coordinatorData=[{_id:'123',name:"sachin"},{_id:'34343',name:"sreeragg"}]
+
+          // let coordinatorData = [{ _id: "612345678901234567890001", name: "reviewer1" },
+          // { _id: "612345678901234567890002", name: "reviewer2" },
+          // { _id: "612345678901234567890003", name: "reviewer3" },
+          // { _id: "612345678901234567890004", name: "reviewer4" },
+          // { _id: "612345678901234567890005", name: "reviewer5" }
+
+          // ]
+
+          const coordinatorData=await controller.OnGetAllCoordinators()
             const corrdinatorReviewData=sendAdvisorData('coordinator-data',coordinatorData)
           console.log('Product availability updated successfully.');
             
@@ -40,11 +51,6 @@ async function consumeReviewData() {
       }
     }
   });
-
- 
-
- 
-  
 }
 async function consumeMeetData() {
   return new Promise((resolve, reject) => {

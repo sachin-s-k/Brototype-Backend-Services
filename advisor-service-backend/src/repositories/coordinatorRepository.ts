@@ -27,4 +27,33 @@ return response
 
         return response
     }
+
+     async findAllCoordinators() {
+
+        const response=await coordinators.find({},'_id')
+
+        console.log(response,'cooooooooo');
+        return response
+        
+    }
 }
+
+
+/*
+
+scheduleReviews
+----------------
+{
+    reviewerId:123
+    students:[id:124,id:345]
+}
+
+reviews={
+    reviewerId:123,
+    studentId:1221,
+    reviewStatus:true/false,
+    coordinatorId:
+}
+
+
+*/

@@ -7,5 +7,6 @@ export interface ICoordinatorRepository{
     editCoordiantorProfile(coordinatorData:any):any
     getCoordinatorProfile(id:string):any,
     findTopcoordinators():any
+    findAllCoordinators():any
 
 }

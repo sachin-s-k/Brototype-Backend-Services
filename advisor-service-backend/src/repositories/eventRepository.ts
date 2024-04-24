@@ -63,3 +63,139 @@ if(index!==undefined){
     
 
 }
+
+// [
+//     {
+//       '$match': {
+//         'coordinatorId': new ObjectId('612345678901234567890001')
+//       }
+//     }, {
+//       '$unwind': {
+//         'path': '$reviews'
+//       }
+//     }, {
+//       '$match': {
+//         'reviews.reviewStatus': 'notcompleted'
+//       }
+//     }, {
+//       '$project': {
+//         'year': {
+//           '$year': '$createdAt'
+//         }, 
+//         'month': {
+//           '$dateToString': {
+//             'format': '%Y-%m', 
+//             'date': '$createdAt'
+//           }
+//         }
+//       }
+//     }, {
+//       '$group': {
+//         '_id': {
+//           'year': '$year', 
+//           'month': '$month'
+//         }, 
+//         'reviewCount': {
+//           '$sum': 1
+//         }
+//       }
+//     }, {
+//       '$project': {
+//         'month': {
+//           '$concat': [
+//             {
+//               '$substrCP': [
+//                 '$_id.year', 2, 3
+//               ]
+//             }, '-', {
+//               '$substrCP': [
+//                 '$_id.month', 5, 6
+//               ]
+//             }
+//           ]
+//         }, 
+//         '_id': 0, 
+//         'reviewCount': 1
+//       }
+//     }, {
+//       '$sort': {
+//         'month': 1
+//       }
+//     }
+//   ]
+
+
+
+// [
+//     {
+//       '$match': {
+//         'coordinatorId': new ObjectId('612345678901234567890001')
+//       }
+//     }, {
+//       '$unwind': {
+//         'path': '$reviews'
+//       }
+//     }, {
+//       '$match': {
+//         'reviews.reviewStatus': 'notcompleted'
+//       }
+//     }, {
+//       '$project': {
+//         'year': {
+//           '$year': '$createdAt'
+//         }, 
+//         'month': {
+//           '$dateToString': {
+//             'format': '%Y-%m', 
+//             'date': '$createdAt'
+//           }
+//         }
+//       }
+//     }, {
+//       '$group': {
+//         '_id': {
+//           'year': '$year', 
+//           'month': '$month'
+//         }, 
+//         'reviewCount': {
+//           '$sum': 1
+//         }
+//       }
+//     }, {
+//       '$project': {
+//         'month': {
+//           '$concat': [
+//             {
+//               '$substrCP': [
+//                 '$_id.year', 2, 3
+//               ]
+//             }, '-', {
+//               '$switch': {
+//                 'branches': [
+//                   {
+//                     'case': {
+//                       '$eq': [
+//                         {
+//                           '$substr': [
+//                             '$_id.month', 5, 2
+//                           ]
+//                         }, '04'
+//                       ]
+//                     }, 
+//                     'then': 'Jan'
+//                   }
+//                 ], 
+//                 'default': ''
+//               }
+//             }
+//           ]
+//         }, 
+//         '_id': 0, 
+//         'reviewCount': 1
+//       }
+//     }, {
+//       '$sort': {
+//         'month': 1
+//       }
+//     }
+//   ]

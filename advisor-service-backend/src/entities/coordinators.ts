@@ -38,7 +38,8 @@ const coordinatorSchema= new Schema<ICoordinators>(
             startDate:String,
             endDate:String,
             startTime:String,
-            endTime:String         
+            endTime:String,
+            conductedDate:Date         
         }]
     },
     {
